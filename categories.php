@@ -4,13 +4,13 @@ require_once "Database.php";
 $config = require "config.php";
 
 $db = new Database($config["database"]);
-$sql_query = "SELECT * FROM posts";
+$sql_query = "SELECT * FROM categories";
 $params = [];
 
 if(isset($_GET["search_query"]) && trim($_GET["search_query"]) != ""    ) {
-    $sql_query = "SELECT * FROM posts WHERE content LIKE '%" . $_GET["search_query"] . "%'";
+    $sql_query = "SELECT * FROM categories WHERE category_name LIKE '%" . $_GET["search_query"] . "%'";
 }
-    $posts = $db->query("SELECT * FROM posts")->fetchAll();  
+    $categories = $db->query("SELECT * FROM category")->fetchAll();  
 
 echo "<h1>Emuārs</h1>";
 
@@ -20,7 +20,7 @@ echo "<form>";
 echo "</form>";
 
 echo "<ul>";
-foreach($posts as $post) {
-echo "<li>" . $post["content"] . "</li>";
+foreach($categories as $category) {
+echo "<li>" . $category["category_name"] . "</li>";
 }
 echo "</ul>";

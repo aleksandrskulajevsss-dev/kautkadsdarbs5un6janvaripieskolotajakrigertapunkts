@@ -1,13 +1,24 @@
-CREATE DATABASE IF NOT EXISTS blog
-CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-
+CREATE DATABASE blog;
 USE blog;
 
-CREATE TABLE IF NOT EXISTS posts (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    content VARCHAR(5200) NOT NULL
+CREATE TABLE posts(
+id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+content VARCHAR(5200) NOT NULL
+);
+CREATE TABLE categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    category_name VARCHAR(25) NOT NULL
 );
 
-INSERT INTO posts (content) VALUES
-('Lieldienas nāk'),
-('Otrais bloga ieraksts');
+INSERT INTO posts
+(content)
+
+VALUES
+("Lieldienas nāk"),
+("Otrais bloga ieraksts");
+
+INSERT INTO categories (category_name)
+VALUES
+('Svētki'),
+('Mūzika'),
+('Sports');
